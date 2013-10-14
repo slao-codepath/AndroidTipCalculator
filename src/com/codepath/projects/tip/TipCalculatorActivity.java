@@ -15,10 +15,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
-	private static BigDecimal TEN_PERCENT = new BigDecimal("0.10");
-	private static BigDecimal FIFTEEN_PERCENT = new BigDecimal("0.15");
-	private static BigDecimal TWENTY_PERCENT = new BigDecimal("0.20");
+public class TipCalculatorActivity extends Activity {
 	private static BigDecimal HUNDRED = new BigDecimal("100");
 
 	private TextView tvTip;
@@ -31,7 +28,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_tip_calculator);
 		tvTip = (TextView) findViewById(R.id.tvTip);
 		etTotal = (EditText) findViewById(R.id.etTotal);
 		etTotal.addTextChangedListener(new TextWatcher() {
@@ -83,28 +80,13 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	public void onClick10(View view) {
-		clearCustom();
-		view.requestFocus();
-		calculateTip(TEN_PERCENT);
-	}
-
-	public void onClick15(View view) {
-		clearCustom();
-		view.requestFocus();
-		calculateTip(FIFTEEN_PERCENT);
-	}
-
-	public void onClick20(View view) {
-		clearCustom();
-		view.requestFocus();
-		calculateTip(TWENTY_PERCENT);
-	}
-
-	private void clearCustom() {
+	public void onClick(View view) {
 		etCustom.setText("");
 		etCustom.clearFocus();
 		etTotal.clearFocus();
+		view.requestFocus();
+		BigDecimal percentage = new BigDecimal((String) view.getTag());
+		calculateTip(percentage);
 	}
 
 	private void calculateTip(BigDecimal tipRate) {

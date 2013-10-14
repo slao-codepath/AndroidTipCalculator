@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".TipCalculatorActivity" >
 
     <Button
         android:id="@+id/btn20"
@@ -16,7 +16,8 @@
         android:layout_alignBottom="@+id/btn15"
         android:layout_alignParentRight="true"
         android:focusableInTouchMode="false"
-        android:onClick="onClick20"
+        android:onClick="onClick"
+        android:tag="0.20"
         android:text="@string/twenty_percent" />
 
     <TextView
@@ -35,7 +36,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:focusableInTouchMode="false"
-        android:onClick="onClick15"
+        android:onClick="onClick"
+        android:tag="0.15"
         android:text="@string/fifteen_percent" />
 
     <Button
@@ -46,7 +48,8 @@
         android:layout_alignBottom="@+id/btn15"
         android:layout_alignParentLeft="true"
         android:focusableInTouchMode="false"
-        android:onClick="onClick10"
+        android:onClick="onClick"
+        android:tag="0.10"
         android:text="@string/ten_percent" />
 
     <EditText
